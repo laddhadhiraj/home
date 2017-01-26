@@ -57,3 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'bootstrap', '~> 4.0.0.alpha6'
   gem 'devise'
   gem 'nested_scaffold'
+  gem "therubyracer"
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "twitter-bootstrap-rails"
