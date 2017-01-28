@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  appointment_start_time: MyString
+  appointment_end_time: MyString
+  patient_full_name: MyString
+  patient_mobile_phone: MyString
+  patient_home_phone: MyString
+  patient_email: MyString
+  patient_full_address: MyString
+
+two:
+  user: two
+  appointment_start_time: MyString
+  appointment_end_time: MyString
+  patient_full_name: MyString
+  patient_mobile_phone: MyString
+  patient_home_phone: MyString
+  patient_email: MyString
+  patient_full_address: MyString

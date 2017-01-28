@@ -1,0 +1,1 @@
+json.partial! "user_integrations/user_integration", user_integration: @user_integration

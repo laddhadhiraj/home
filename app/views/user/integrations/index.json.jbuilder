@@ -1,0 +1,1 @@
+json.array! @user_integrations, partial: 'user_integrations/user_integration', as: :user_integration

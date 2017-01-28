@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Appointment start time:</b>
+  <%= @appointment.appointment_start_time %>
+</p>
+
+<p>
+  <b>Appointment end time:</b>
+  <%= @appointment.appointment_end_time %>
+</p>
+
+<p>
+  <b>Patient full name:</b>
+  <%= @appointment.patient_full_name %>
+</p>
+
+<p>
+  <b>Patient mobile phone:</b>
+  <%= @appointment.patient_mobile_phone %>
+</p>
+
+<p>
+  <b>Patient home phone:</b>
+  <%= @appointment.patient_home_phone %>
+</p>
+
+<p>
+  <b>Patient email:</b>
+  <%= @appointment.patient_email %>
+</p>
+
+<p>
+  <b>Patient full address:</b>
+  <%= @appointment.patient_full_address %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_appointment_path(@appointment.user, @appointment) %> |
+<%= link_to 'Back', user_appointments_path(@appointment.user) %>

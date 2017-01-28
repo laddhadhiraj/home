@@ -1,0 +1,27 @@
+<h1>Listing integrations</h1>
+<br>
+<button type="button" class="btn btn-default"><%= link_to 'New Integration', new_integration_path %></button>
+<br>
+<table class="table table-striped">
+  <tr>
+    <th>Software type</th>
+    <th>Software username</th>
+    <th>Software api key</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @integrations.each do |integration| %>
+  <tr>
+    <td><%= integration.software_type %></td>
+    <td><%= integration.software_username %></td>
+    <td><%= integration.software_api_key %></td>
+    <td><%= link_to 'Show', integration %></td>
+    <td><%= link_to 'Edit', edit_integration_path(integration) %></td>
+    <td><%= link_to 'Destroy', integration, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126062037) do
+ActiveRecord::Schema.define(version: 20170127072014) do
+
+  create_table "integrations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "software_type"
+    t.string   "software_username"
+    t.string   "software_api_key"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["user_id"], name: "index_integrations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

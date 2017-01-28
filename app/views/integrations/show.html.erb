@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @integration.software_type %></h2>
+
+<p>
+  <b>Software type:</b>
+  <%= @integration.software_type %>
+</p>
+
+<p>
+  <b>Software username:</b>
+  <%= @integration.software_username %>
+</p>
+
+<p>
+  <b>Software api key:</b>
+  <%= @integration.software_api_key %>
+</p>
+
+
+<%= link_to 'Edit', edit_integration_path(@integration) %> |
+<%= link_to 'Back', integrations_path %>

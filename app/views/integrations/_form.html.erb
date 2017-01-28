@@ -1,0 +1,29 @@
+<%= form_for(@integration) do |f| %>
+  <% if @integration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@integration.errors.count, "error") %> prohibited this integration from being saved:</h2>
+
+      <ul>
+      <% @integration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group form-group-lg">
+    <%= f.label :software_type %><br />
+    <%= f.text_field :software_type, class: "form-control" %>
+  </div>
+  <div class="form-group form-group-lg">
+    <%= f.label :software_username %><br />
+    <%= f.text_field :software_username, class: "form-control" %>
+  </div>
+  <div class="form-group form-group-lg">
+    <%= f.label :software_api_key %><br />
+    <%= f.text_field :software_api_key, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

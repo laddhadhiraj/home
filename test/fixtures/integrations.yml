@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  software_type: MyString
+  software_username: MyString
+  software_api_key: MyString
+
+two:
+  user: two
+  software_type: MyString
+  software_username: MyString
+  software_api_key: MyString

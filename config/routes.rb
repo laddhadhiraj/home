@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  resources :users do
+    resources :appointments
+  end
   root 'pages#index'
+
+  devise_for :users
+
+  resources :integrations
 
   get 'pages/index'
 

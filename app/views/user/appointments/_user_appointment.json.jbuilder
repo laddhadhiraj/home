@@ -1,0 +1,2 @@
+json.extract! user_appointment, :id, :appointment_start_time, :appointment_end_time, :patient_full_name, :patient_mobile_phone, :patient_home_phone, :patient_email, :patient_full_address, :created_at, :updated_at
+json.url user_appointment_url(user_appointment, format: :json)
