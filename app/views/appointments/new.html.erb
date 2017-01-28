@@ -1,5 +1,9 @@
 <h1>New appointment</h1>
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <%= render 'form' %>
+  </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', user_appointments_path(@appointment.user) %>
+<%= link_to 'Back', appointments_path(@appointment) %>

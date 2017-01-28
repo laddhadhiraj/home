@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h2>@appointment.patient_full_name</h2>
+
 <p>
   <b>Appointment start time:</b>
   <%= @appointment.appointment_start_time %>
@@ -36,5 +38,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_user_appointment_path(@appointment.user, @appointment) %> |
-<%= link_to 'Back', user_appointments_path(@appointment.user) %>
+<%= link_to 'Edit', edit_appointment_path(@appointment) %> |
+<%= link_to 'Back', appointments_path %>

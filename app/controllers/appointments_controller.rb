@@ -1,4 +1,6 @@
 class AppointmentsController < ApplicationController
+
+  before_action :authenticate_user!
   before_action :set_appointments
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
@@ -9,6 +11,7 @@ class AppointmentsController < ApplicationController
 
   # GET users/1/appointments/1
   def show
+    @appointment = @user.appointments.find(params[:id])
   end
 
   # GET users/1/appointments/new
@@ -25,7 +28,7 @@ class AppointmentsController < ApplicationController
     @appointment = @user.appointments.build(appointment_params)
 
     if @appointment.save
-      redirect_to([@appointment.user, @appointment], notice: 'Appointment was successfully created.')
+      redirect_to(@appointment, notice: 'Appointment was successfully created.')
     else
       render action: 'new'
     end
@@ -34,7 +37,7 @@ class AppointmentsController < ApplicationController
   # PUT users/1/appointments/1
   def update
     if @appointment.update_attributes(appointment_params)
-      redirect_to([@appointment.user, @appointment], notice: 'Appointment was successfully updated.')
+      redirect_to(@appointment, notice: 'Appointment was successfully updated.')
     else
       render action: 'edit'
     end
@@ -44,13 +47,13 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment.destroy
 
-    redirect_to user_appointments_url(@user)
+    redirect_to appointments_url(@user)
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_appointments
-      @user = User.find(params[:user_id])
+      @user = current_user
     end
 
     def set_appointment

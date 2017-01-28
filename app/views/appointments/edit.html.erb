@@ -1,6 +1,10 @@
 <h1>Editing appointment</h1>
-
-<%= render 'form' %>
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <%= render 'form' %>
+  </div>
+</div>
 
 <%= link_to 'Show', [@appointment.user, @appointment] %> |
 <%= link_to 'Back', user_appointments_path(@appointment.user) %>

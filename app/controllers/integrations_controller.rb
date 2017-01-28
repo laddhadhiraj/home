@@ -4,10 +4,6 @@ class IntegrationsController < ApplicationController
   before_action :set_integrations
   before_action :set_integration, only: [:show, :edit, :update, :destroy]
 
-  before_action :authenticate_user!
-  before_action :set_integrations
-  before_action :set_integration, only: [:show, :edit, :update, :destroy]
-
   # GET users/1/integrations
   def index
     @integrations = @user.integrations
