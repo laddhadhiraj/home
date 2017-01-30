@@ -46,7 +46,6 @@ class IntegrationsController < ApplicationController
   # DELETE users/1/integrations/1
   def destroy
     @integration.destroy
-
     redirect_to integrations_url(@user)
   end
 

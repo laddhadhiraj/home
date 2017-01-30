@@ -1,0 +1,45 @@
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group form-group-lg">
+    <%= f.label :patient_full_name %><br />
+    <%= f.text_field :patient_full_name, class: "form-control" %>
+  </div>
+  <div class="form-group form-group-lg">
+    <%= f.label :patient_first_name %><br />
+    <%= f.text_field :patient_first_name, class: "form-control" %>
+  </div>
+  <div class="form-group form-group-lg">
+    <%= f.label :patient_last_name %><br />
+    <%= f.text_field :patient_last_name, class: "form-control" %>
+  </div>
+  <div class="form-group form-group-lg">
+    <%= f.label :patient_dob %><br />
+    <%= f.text_field :patient_dob, class: "form-control" %>
+  </div>
+  <div class="form-group form-group-lg">
+    <%= f.label :patient_mobile_phone %><br />
+    <%= f.text_field :patient_mobile_phone, class: "form-control" %>
+  </div>
+  <div class="form-group form-group-lg">
+    <%= f.label :patient_home_phone %><br />
+    <%= f.text_field :patient_home_phone, class: "form-control" %>
+  </div>
+  <div class="form-group form-group-lg">
+    <%= f.label :patient_work_phone %><br />
+    <%= f.text_field :patient_work_phone, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

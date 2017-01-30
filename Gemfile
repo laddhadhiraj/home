@@ -61,3 +61,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "twitter-bootstrap-rails"
   gem 'will_paginate', '~> 3.1.0'
+  gem 'will_paginate-bootstrap'
+
+  gem "rest-client" # for making http request to API endpoint
+  gem "filterrific" # for sort and filter records (using on table on index page)
+  gem 'sprockets', '3.6.3'

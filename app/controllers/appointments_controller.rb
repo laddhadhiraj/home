@@ -6,7 +6,7 @@ class AppointmentsController < ApplicationController
 
   # GET users/1/appointments
   def index
-    @appointments = @user.appointments
+    @appointments = @user.appointments.order("patient_full_name DESC").page(params[:page])
   end
 
   # GET users/1/appointments/1
@@ -46,8 +46,30 @@ class AppointmentsController < ApplicationController
   # DELETE users/1/appointments/1
   def destroy
     @appointment.destroy
-
     redirect_to appointments_url(@user)
+  end
+
+  # fetch appointments from cliniko
+  def fetch_appointments
+    begin
+      @appointments = Appointment.fetch_from_cliniko
+      errors = []
+      @appointments.each do |appointment|
+        appointment = current_user.appointments.where({
+          patient_full_name: appointment["patient_name"],
+          appointment_start_time: appointment["appointment_start"],
+          appointment_end_time: appointment["appointment_end"],
+        }).first_or_initialize
+
+        appointment.save
+        errors << appointment.errors.full_messages if appointment.errors.any?
+      end
+      message = "Successfully fetch appointments data from cliniko"
+      message << "\n #{errors.join(",")}" if errors.present?
+    rescue => e
+      message = e.message
+    end
+    redirect_to appointments_path, flash: {notice: message}
   end
 
   private
@@ -62,6 +84,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def appointment_params
-      params.require(:appointment).permit(:appointment_start_time, :appointment_end_time, :patient_full_name, :patient_mobile_phone, :patient_home_phone, :patient_email, :patient_full_address)
+      params.require(:appointment).permit(:appointment_start_time, :appointment_end_time, :appointment_full_name, :appointment_mobile_phone, :appointment_home_phone, :appointment_email, :appointment_full_address)
     end
 end

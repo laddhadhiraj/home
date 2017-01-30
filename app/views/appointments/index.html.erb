@@ -1,18 +1,33 @@
 <h1>Todays Appointments</h1>
 
 <br>
-<button type="button" class="btn btn-default"><%= link_to 'Fetch Today Appointment', new_appointment_path %></button>
-<br>
-<br>
 <button type="button" class="btn btn-default"><%= link_to 'New Appointment', new_appointment_path %></button>
 <br>
 <br>
-<div class="col-md-3">
-<div class="well">
-    <h4>Ben Strachan</h4>
-    <p>9am-9:30am</p>
-    <p><a href="tel:0400683466">0400 683 466</a></p>
-    <p><a href="tel:0730627771">(07) 3062 7771</a></p>
-    <p><a href="http://maps.google.com/?q=15 Dobson St, Ascot QLD 4007">15 Dobson St, Ascot QLD 4007</a></p>
-    <u><p>Complete</p></u>
-</div>
+<button type="button" class="btn btn-default"><%= link_to 'Fetch Appointment', fetch_appointments_path %></button>
+<br>
+<br>
+<table class="table table-striped">
+  <tr>
+    <th>Appointment Start Time</th>
+    <th>Appointment End Time</th>
+    <th>Patient Full Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @appointments.each do |appointment| %>
+  <tr>
+    <td><%= appointment.appointment_start_time %></td>
+    <td><%= appointment.appointment_end_time %></td>
+    <td><%= appointment.patient_full_name %></td>
+    <td><%= link_to 'Show', appointment %></td>
+    <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+    <td><%= link_to 'Destroy', appointment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @appointments, renderer: BootstrapPagination::Rails %>

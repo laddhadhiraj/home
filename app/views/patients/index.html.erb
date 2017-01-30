@@ -1,0 +1,38 @@
+<h1>Listing patients</h1>
+
+<%= link_to 'New Patient', new_patient_path, class: "btn btn-default" %>
+<%= link_to 'Fetch Patients', fetch_patients_path, class: "btn btn-default" %>
+
+<table class="table table-striped table-patients">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Full name</th>
+      <th>Dob</th>
+      <th>Mobile phone</th>
+      <th>Home phone</th>
+      <th>Work phone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each.with_index(1) do |patient, idx| %>
+      <tr>
+        <td><%= (params[:page].to_i * Patient.per_page) + idx %>.</td>
+        <td><%= patient.full_name %></td>
+        <td><%= patient.patient_dob %></td>
+        <td><%= patient.patient_mobile_phone %></td>
+        <td><%= patient.patient_home_phone %></td>
+        <td><%= patient.patient_work_phone %></td>
+        <td><%= link_to 'Show', patient %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @patients, renderer: BootstrapPagination::Rails %>

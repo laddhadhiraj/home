@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128022432) do
+ActiveRecord::Schema.define(version: 20170129094354) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 20170128022432) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["user_id"], name: "index_integrations_on_user_id"
+  end
+
+  create_table "patients", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "patient_full_name"
+    t.string   "patient_first_name"
+    t.string   "patient_last_name"
+    t.string   "patient_dob"
+    t.string   "patient_mobile_phone"
+    t.string   "patient_home_phone"
+    t.string   "patient_work_phone"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
